@@ -1,131 +1,100 @@
-        :root {
+   :root {
             --dark-blue: rgb(6, 6, 31);
             --mid-blue: rgb(58, 135, 167);
             --light-blue: rgb(121, 175, 196);
             --contact-bg: rgb(149, 207, 232);
-            --primary-color: #0d6efd;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-blue);
+            color: white;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         .navbar {
-            background: rgba(6, 6, 31, 0.95) !important;
+            background: rgba(6, 6, 31, 0.9) !important;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         #home {
-            background-color: var(--dark-blue);
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            color: white;
             padding: 100px 0;
         }
 
         .hero-img {
-            max-height: 500px;
+            height: 380px;
+            width: 380px; 
+            object-fit: contain; 
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            box-shadow: 0 0 30px rgba(13, 110, 253, 0.3);
-            transition: 0.5s;
+            box-shadow: 0 0 40px rgba(13, 110, 253, 0.5);
+            transition: 0.6s ease-in-out;
+            background-color: rgba(255,255,255,0.03); 
         }
 
         .hero-img:hover {
             border-radius: 50%;
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
-        .kk {
-            background: linear-gradient(to bottom, var(--dark-blue), var(--mid-blue));
-            min-height: 200px;
-            width: 100%;
+        .gradient-sep {
+            height: 150px;
+            margin-top: -2px;
+        }
+        .g1 { background: linear-gradient(to bottom, var(--dark-blue), var(--mid-blue)); }
+        .g2 { background: linear-gradient(to bottom, var(--mid-blue), var(--light-blue)); }
+        .g3 { background: linear-gradient(to bottom, var(--light-blue), var(--contact-bg)); }
+
+        #about { background-color: var(--mid-blue); padding: 80px 0; }
+        #projects { background-color: var(--light-blue); padding: 80px 0; color: #333; }
+        #contact { background-color: var(--contact-bg); padding: 100px 0; color: #333; }
+
+        .carousel-item img {
+            height: 380px;
+            object-fit: contain; 
+            border-radius: 20px;
+            background-color: rgba(255,255,255,0.05); 
         }
 
-        .ll {
-            background: linear-gradient(to bottom, var(--light-blue), var(--contact-bg));
-            min-height: 200px;
-            width: 100%;
-        }
-
-        #about {
-            background-color: var(--mid-blue);
-            padding: 80px 0;
-        }
-
-        .projects-wrapper {
-            background-color: var(--light-blue);
-            padding: 80px 0;
+        .card img {
+            height: 250px; 
+            object-fit: contain; 
+            padding: 10px;
         }
 
         .card {
             border: none;
+            border-radius: 25px;
             transition: 0.4s;
-            border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background-color: #fff;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.2);
         }
 
-        #contact {
-            background-color: var(--contact-bg);
-            padding: 100px 0;
+        .contact-card {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 35px;
+            padding: 50px;
         }
 
-        .contact-info-box {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-        }
-
-        .social-icons a {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: var(--dark-blue);
+        .btn-primary {
+            padding: 14px 40px;
+            border-radius: 15px;
+            font-weight: 600;
+            background: var(--dark-blue);
+            border: none;
             transition: 0.3s;
         }
-
-        .social-icons a:hover {
-            color: var(--primary-color);
-            transform: scale(1.2);
-        }
-
-        .form-control {
-            border-radius: 10px;
-            padding: 12px;
-            border: none;
-        }
-
-        @media (max-width: 768px) {
-            #home {
-                text-align: center;
-                padding: 50px 0;
-            }
-
-            .hero-img {
-                max-height: 300px;
-                margin-top: 30px;
-            }
-
-            .kk,
-            .ll {
-                min-height: 100px;
-            }
-
-            .display-4 {
-                font-size: 2.5rem;
-            }
-        }
-        .proj img{
-            height: 330px;
-        }
-        #about img{
-            height: 330px;
-        }
+        
+        .btn-primary:hover { background: #1a1a4a; transform: translateY(-3deg); }
