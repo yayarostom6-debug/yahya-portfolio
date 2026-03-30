@@ -5,44 +5,60 @@
             touch: true
         });
 
-const contactForm = document.getElementById('contactForm');
-const nameInput = document.getElementById('nameInput');
-const emailInput = document.getElementById('emailInput');
-const msgInput = document.getElementById('msgInput');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault(); 
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
 
-    let isNameValid = checkInput(nameInput, nameInput.value.trim().length >= 3);
-    let isEmailValid = checkInput(emailInput, validateEmail(emailInput.value.trim()));
-    let isMsgValid = checkInput(msgInput, msgInput.value.trim().length > 0);
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); 
+            const formData = {
+                name: document.getElementById('userName').value.trim(),
+                email: document.getElementById('userEmail').value.trim(),
+                password: document.getElementById('userPassword').value,
+                message: document.getElementById('projectDesc').value.trim()
+            };
 
-    if (isNameValid && isEmailValid && isMsgValid) {
-        alert('✅ Your message has been sent successfully!');
-        contactForm.reset();
-        resetStatus();
-    }
-});
+            if (validateForm(formData)) {
+                submitData(formData);
+            }
+        });
 
-function checkInput(input, condition) {
-    const group = input.parentElement;
-    if (condition) {
-        group.classList.remove('error');
-        group.classList.add('success');
-        return true;
-    } else {
-        group.classList.remove('success');
-        group.classList.add('error');
-        return false;
-    }
-}
+        function validateForm(data) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+            if (data.name.length < 3) {
+                alert("Please enter a valid full name.");
+                return false;
+            }
+            if (!emailRegex.test(data.email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (data.password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            }
+            if (data.message === "") {
+                alert("Please describe your project.");
+                return false;
+            }
+            return true;
+        }
 
-function resetStatus() {
-    document.querySelectorAll('.form-group').forEach(group => {
-        group.classList.remove('success', 'error');
+        function submitData(data) {
+            console.log("Sending Data to Server...", data);
+            
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert("Success! Your query has been submitted.");
+                form.reset();
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
     });
-}

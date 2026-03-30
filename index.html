@@ -151,14 +151,30 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <form class="bg-white p-5 rounded-4 shadow-sm">
-                            <div class="row g-3">
-                                <div class="col-md-6"><input type="text" class="form-control bg-light border-0 py-3" placeholder="First Name"></div>
-                                <div class="col-md-6"><input type="email" class="form-control bg-light border-0 py-3" placeholder="Your Email"></div>
-                                <div class="col-12"><textarea class="form-control bg-light border-0 py-3" rows="5" placeholder="Project Description"></textarea></div>
-                                <div class="col-12 mt-4"><button class="btn btn-primary w-100 py-3 fw-bold shadow">Submit Query</button></div>
-                            </div>
-                        </form>
+<form id="contactForm" class="bg-white p-5 rounded-4 shadow-sm">
+    <div class="row g-3">
+        <div class="col-12">
+            <input type="text" id="userName" class="form-control bg-light border-0 py-3" placeholder="Full Name" required>
+        </div>
+        
+        <div class="col-12">
+            <input type="email" id="userEmail" class="form-control bg-light border-0 py-3" placeholder="Your Email" required>
+        </div>
+
+        <div class="col-12">
+            <input type="password" id="userPassword" class="form-control bg-light border-0 py-3" placeholder="Password" required>
+        </div>
+
+        <div class="col-12">
+            <textarea id="projectDesc" class="form-control bg-light border-0 py-3" rows="5" placeholder="Project Description" required></textarea>
+        </div>
+
+        <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold shadow">Submit Query</button>
+        </div>
+    </div>
+</form>
+
                     </div>
                 </div>
             </div>
